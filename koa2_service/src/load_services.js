@@ -1,5 +1,5 @@
 'use strict'
-import _ from 'lodash';
+
 
 const CODE_SUCCESS = 200;
 const CODE_SYS_ERR = 500;
@@ -52,7 +52,7 @@ const middlewareFun = async function(ctx, next, options) {
                     delete condition.userId
                 }
                 condition = _.assign({_id:ctx.params.id}, statusWhere);
-                result = await models[options.model+"Model"].findOne(condition).populate(options.model);
+                result = await models[options.model].findOne(condition).populate(options.model);
             }else{  //获取列表
                const pageSize = ctx.query.pageSize || 20
                 let limit =parseInt(pageSize) ;
@@ -95,16 +95,12 @@ const middlewareFun = async function(ctx, next, options) {
 
                 }
                  where = _.assign(where, statusWhere);
-                console.log(11111)
+
 
                 if(ctx.query.all||options.all){
                     result = await models[options.model].find(where).populate(options.model);
                 }else {
-                  
-                    console.log(12112)
-                    console.log(models)
-                    result = await models[options.model].find(where).populate(options.model).skip(skip).limit(limit);
-                    console.log(result)
+                  result = await models[options.model].find(where).populate(options.model).skip(skip).limit(limit);
                 }
             }
             break;
@@ -117,7 +113,7 @@ const middlewareFun = async function(ctx, next, options) {
             if(body.pwd){
                 body.pwd = MD5(body.pwd);
             }
-            result = await new models[options.model+"Model"](body).save();
+            result = await new models[options.model](body).save();
             break;
         case "put":
             //修改详情
@@ -127,11 +123,11 @@ const middlewareFun = async function(ctx, next, options) {
             }else{
                 delete body.pwd
             }
-            await  models[options.model+"Model"].update({_id : id}, {$set:body});
+            await  models[options.model].update({_id : id}, {$set:body});
             result = 'OK';
             break;
         case "delete":
-            await  models[options.model+"Model"].remove({_id : id});
+            await  models[options.model].remove({_id : id});
             result = 'OK';
             //删除
             break;

@@ -16,7 +16,6 @@ let dir = fs.readdirSync(__dirname + '/../../lib/models');
 for (let i = 0; i < dir.length; i++) {
     if (path.extname(dir[i]) !== '.js') continue;
     let name = toCamel(path.basename(dir[i], '.js')).replace('Model', '')
-    console.log(toUnderLine(name))
     let modelSehema = require(__dirname + '/../../lib/models/' + dir[i])
     let schema = new Schema(modelSehema.model)
     let adminUser = mongoose.model(toUnderLine(name), schema);
