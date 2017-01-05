@@ -1,0 +1,45 @@
+{
+  "name": "fullweb",
+  "version": "1.0.0",
+  "description": "一键式网站",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node koa2_service/bin/run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cupyong/fullweb.git"
+  },
+  "keywords": [
+    "koa",
+    "vue",
+    "js"
+  ],
+  "dependencies": {
+    "co": "^4.6.0",
+    "debug": "^2.2.0",
+    "jade": "~1.11.0",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^2.0.1",
+    "koa-compress": "^1.0.9",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-json": "^1.1.3",
+    "koa-logger": "^1.3.0",
+    "koa-onerror": "^1.2.1",
+    "koa-router": "^7.0.0",
+    "koa-static": "^2.0.0",
+    "koa-views": "^5.0.1",
+    "mongoose": "^4.7.6",
+    "runkoa": "^1.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
+  },
+  "author": "cupyong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cupyong/fullweb/issues"
+  },
+  "homepage": "https://github.com/cupyong/fullweb#readme"
+}
