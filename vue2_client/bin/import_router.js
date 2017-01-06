@@ -5,6 +5,7 @@ require('../../lib/utils/load_global.js')
 let dir = fs.readdirSync(__dirname + '/../../lib/models');
 let model_Paths=[];
 let menuJosn=[];
+
 for (let i = 0; i < dir.length; i++) {
     if (path.extname(dir[i]) !== '.js') continue;
     let name = (toCamel(path.basename(dir[i], '.js')).replace('Model', '')).toLowerCase()
@@ -17,7 +18,6 @@ for (let i = 0; i < dir.length; i++) {
     model_Paths.push(model_path);
 
     let modelSehema = require(__dirname + '/../../lib/models/' + dir[i])
-
     let menu="";
     menu += '  '+' {\n';
     menu +='     ' + 'name:\''+modelSehema.name+'\',\n';
@@ -27,6 +27,7 @@ for (let i = 0; i < dir.length; i++) {
     menu += '  '+' }\n';
     menuJosn.push(menu)
 }
+
 let model_router = '';
 model_router += '\'use strict\';\n\n';
 model_router += 'module.exports=[\n';
