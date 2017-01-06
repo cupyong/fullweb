@@ -17,6 +17,7 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new ExtractTextPlugin('style.css', { allChunks: true }),
         new HtmlWebpackPlugin({
             title: "",
             template: path.join(__dirname, './src/index.html'),
@@ -28,7 +29,7 @@ module.exports = {
         //     template: path.join(__dirname, 'src/index.html'),
         //     inject: true
         // }),
-        new ExtractTextPlugin('style.css', { allChunks: true })
+
     ],
     module: {
         // preLoaders: [

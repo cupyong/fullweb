@@ -1,7 +1,8 @@
 import vue from 'vue'
+import config from '../config.js'
 
 export const commonHttpAction = (commit ,data) => {
-    let _url = `http://localhost:3333${data.url}`
+    let _url = `${config.service_url}${data.url}`
     if(!data.method){
         data.method = 'get'
     }

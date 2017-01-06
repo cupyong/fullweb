@@ -7,6 +7,7 @@ import FastClick from 'fastclick'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import router from './routers'
+import './assets/styles/common.css'
 
 window.addEventListener('load', () => {
     FastClick.attach(document.body)
@@ -20,8 +21,8 @@ router.afterEach(function (transition) {
     }
 })
 const app = new Vue({
-        store,
-        router,
-        render: h => h(App)
+  store,
+  router,
+  render: h => h(App)
 })
 app.$mount('#app')
