@@ -1,7 +1,7 @@
 'use strict'
 
 
-const CODE_SUCCESS = 200;
+const CODE_SUCCESS = 0;
 const CODE_SYS_ERR = 500;
 const CODE_LOGIC_ERR = 520;
 
@@ -95,9 +95,7 @@ const middlewareFun = async function(ctx, next, options) {
 
                 }
                  where = _.assign(where, statusWhere);
-
-
-                if(ctx.query.all||options.all){
+               if(ctx.query.all||options.all){
                     result = await models[options.model].find(where).populate(options.model);
                 }else {
                   result = await models[options.model].find(where).populate(options.model).skip(skip).limit(limit);
