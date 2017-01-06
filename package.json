@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "serve": "node koa2_service/bin/run",
-    "client": "webpack-dev-server  --progress --inline --colors"
+    "client": "npm run client_router && npm run webpack",
+    "webpack": "webpack-dev-server  --progress --inline --colors",
+    "client_router": "node vue2_client/bin/import_router.js"
   },
   "repository": {
     "type": "git",

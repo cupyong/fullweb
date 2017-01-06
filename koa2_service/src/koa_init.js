@@ -24,6 +24,6 @@ app.on('error', function(err, ctx){
     console.log(err)
     logger.error('server error', err, ctx);
 });
-app.listen(3000);
+app.listen(config.port);
 
 
