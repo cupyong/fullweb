@@ -27,7 +27,8 @@
         <div class="main-cnt">
 
             <div class="content">
-                <MainContent></MainContent>
+                <router-view></router-view>
+                <!--<MainContent></MainContent>-->
             </div>
 
         </div>
@@ -35,9 +36,9 @@
     </div>
 </template>
 <script>
-    import MainContent from '../components/Common/content.vue'
+//    import MainContent from '../components/Common/content.vue'
      export default {
-        components: {MainContent},
+//        components: {MainContent},
          methods: {
              handleOpen(key, keyPath) {
                  console.log(key, keyPath);

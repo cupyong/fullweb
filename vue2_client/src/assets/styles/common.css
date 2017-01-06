@@ -55,13 +55,11 @@ html,body{  height:100%;}
 .main-cnt:after{display:block;clear:both;content:"";visibility:hidden;height:0}
 .nav{
     position:absolute;
-    min-height:600px;
+    min-height:100%;
     width:220px;
     z-index:1000;
     background: #eff2f7;
-
 }
 .main-cnt .content{
-
-    padding:5px
+   padding:5px
 }

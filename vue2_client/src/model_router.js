@@ -2,7 +2,8 @@
 
 module.exports=[
    {
-     path: '/user',
-     component: require('./views/index')
+     path:'user',
+     component: require('./components/Common/content.vue'),
+     alias: '/user'
    }
 ]

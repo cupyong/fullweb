@@ -9,8 +9,9 @@ for (let i = 0; i < dir.length; i++) {
     let name = (toCamel(path.basename(dir[i], '.js')).replace('Model', '')).toLowerCase()
     let model_path="";
     model_path += '  '+' {\n';
-    model_path +='     ' + 'path: \'/'+name+'\',\n';
-    model_path +='     ' + 'component: require(\'./views/index\')\n';
+    model_path +='     ' + 'path:\''+name+'\',\n';
+    model_path +='     ' + 'component: require(\'./components/Common/content.vue\'),\n';
+    model_path +='     ' + 'alias: \'/'+name+'\'\n';
     model_path += '  '+' }\n';
     model_Paths.push(model_path)
 }
