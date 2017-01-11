@@ -4,7 +4,6 @@
             导航
         </div>
         <div class="nav">
-            <router-link to="teacher">/parent/foo</router-link>
           <el-menu :router=true default-active="user" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
                 <el-menu-item v-for="item in menu" :index="item.router">
                     <i :class="item.icon"></i>{{item.name}}

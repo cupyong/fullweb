@@ -28,7 +28,7 @@
         data() {
             return {
                 tableData: [{
-                    date: this.$route.params.id,
+                    date: '2016-05-04',
                     name: '王小虎',
                     address: '上海市普陀区金沙江路 1518 弄'
                 }, {

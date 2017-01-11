@@ -1,5 +1,5 @@
 <template>
-    <div>{{model}}_searchtop</div>
+   <div>searchtop</div>
 </template>
 
 <script>
@@ -8,7 +8,7 @@
             model: '',
         },
         mounted () {
-
+            console.log(this.model)
         },
     }
 </script>

@@ -13,10 +13,4 @@ module.exports=[
      icon:'el-icon-picture',
      model:'用户',
    }
-,   {
-     name:'智课',
-     router:'zhike',
-     icon:'el-icon-picture',
-     model:'智课',
-   }
 ]
