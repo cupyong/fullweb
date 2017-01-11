@@ -15,8 +15,13 @@ window.addEventListener('load', () => {
 Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.use(ElementUI)
+router.beforeEach((to, from, next) => {
+   console.log(to)
+   console.log(from)
+   next()
+})
 router.afterEach(function (transition) {
-    if(transition.name){
+   if(transition.name){
         document.title = transition.name
     }
 })

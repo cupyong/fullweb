@@ -1,4 +1,5 @@
 'use strict'
+
 const path = require('path');
 const fs = require('fs');
 require('../../lib/utils/load_global.js')
@@ -9,14 +10,39 @@ let menuJosn=[];
 for (let i = 0; i < dir.length; i++) {
     if (path.extname(dir[i]) !== '.js') continue;
     let name = (toCamel(path.basename(dir[i], '.js')).replace('Model', '')).toLowerCase()
+    //views
+
+    let views_content=`<template>
+    <div>
+        <table_content :model.sync="model"></table_content>
+    </div>
+</template>
+<script>
+    import table_content from '../../components/Common/content.vue'
+    export default {
+        data() {
+            return {
+                model: '${name}'
+            }
+        },
+        components: { table_content},
+      }
+</script>`
+
+    fs.writeFileSync(__dirname + `/../src/views/model_view/${name}.vue`, views_content);
+
+    //路由
     let model_path="";
     model_path += '  '+' {\n';
     model_path +='     ' + 'path:\''+name+'\',\n';
-    model_path +='     ' + 'component: require(\'./components/Common/content.vue\'),\n';
+    model_path +='     ' + 'component: require(\'./views/model_view/'+name+'.vue\'),\n';
     model_path +='     ' + 'alias: \'/'+name+'\'\n';
     model_path += '  '+' }\n';
     model_Paths.push(model_path);
 
+
+
+    //导航
     let modelSehema = require(__dirname + '/../../lib/models/' + dir[i])
     let menu="";
     menu += '  '+' {\n';
@@ -26,6 +52,8 @@ for (let i = 0; i < dir.length; i++) {
     menu +='     ' + 'model:\''+modelSehema.name+'\',\n';
     menu += '  '+' }\n';
     menuJosn.push(menu)
+
+
 }
 
 let model_router = '';

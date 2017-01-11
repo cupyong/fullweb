@@ -94,7 +94,7 @@ const middlewareFun = async function(ctx, next, options) {
                     }
 
                 }
-                 where = _.assign(where, statusWhere);
+               where = _.assign(where, statusWhere);
                if(ctx.query.all||options.all){
                     result = await models[options.model].find(where).populate(options.model);
                 }else {

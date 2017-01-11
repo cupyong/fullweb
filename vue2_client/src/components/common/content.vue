@@ -22,10 +22,13 @@
 
 <script>
     export default {
+        props: {
+            model: '',
+        },
         data() {
             return {
                 tableData: [{
-                    date: '2016-05-02',
+                    date: this.$route.params.id,
                     name: '王小虎',
                     address: '上海市普陀区金沙江路 1518 弄'
                 }, {
@@ -42,6 +45,10 @@
                     address: '上海市普陀区金沙江路 1516 弄'
                 }]
             }
-        }
+        },
+
+        mounted () {
+            console.log(this.model)
+        },
     }
 </script>
