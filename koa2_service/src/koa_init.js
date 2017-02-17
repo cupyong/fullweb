@@ -5,12 +5,15 @@ const convert = require('koa-convert');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
 const router = require('./load_router.js')
+var cors = require('koa-cors');
 
 const app = new Koa();
 
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
+
+app.use(cors());
 
 app.use(async (ctx, next) => {
     const start = new Date();

@@ -1,3 +1,3 @@
 module.exports={
-    "service_url" : "http://localhost:3333",
+    "service_url" : "http://localhost:3333/",
 }

@@ -1,4 +1,5 @@
 <template>
+    {{list.name}}
     <el-table
             :data="tableData"
             stripe
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     export default {
         props: {
             model: '',
@@ -48,7 +50,17 @@
         },
 
         mounted () {
-            console.log(this.model)
+            this.$store.dispatch('fetchList',{path:this.model})
         },
+        computed: {
+            ...mapGetters({
+                list: 'getList'
+            }),
+        }
+
+
+//        mounted () {
+//            console.log(this.model)
+//        },
     }
 </script>

@@ -6,25 +6,24 @@ require('../../lib/utils/load_global.js')
 let dir = fs.readdirSync(__dirname + '/../../lib/models');
 let model_Paths=[];
 let menuJosn=[];
-
 for (let i = 0; i < dir.length; i++) {
     if (path.extname(dir[i]) !== '.js') continue;
     let name = (toCamel(path.basename(dir[i], '.js')).replace('Model', '')).toLowerCase()
     //views
-
-    let views_content=`<template>
+     let views_content=`<template>
     <div>
        <search_top :model.sync="model"></search_top>
        <table_content :model.sync="model"></table_content>
    </div>
 </template>
 <script>
-    import table_content from '../../components/Common/content.vue'
+     import table_content from '../../components/Common/content.vue'
      import search_top from '../../components/Common/searchtop.vue'
-    export default {
+     export default {
         data() {
             return {
-                model: '${name}'
+                model: '${name}',
+                
             }
         },
         components: { table_content,search_top},

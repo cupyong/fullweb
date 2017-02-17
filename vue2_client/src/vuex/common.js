@@ -3,6 +3,7 @@ import config from '../config.js'
 
 export const commonHttpAction = (commit ,data) => {
     let _url = `${config.service_url}${data.url}`
+    console.log(_url)
     if(!data.method){
         data.method = 'get'
     }
