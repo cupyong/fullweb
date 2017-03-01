@@ -6,7 +6,7 @@ lib 层为公共层
   多一些条件如 rule 验证规则 一个项目就能启动 正常的api 一套增删改查就完成了
 </pre>
 <pre>
-  以后开发会支持[ koa1 ,express , koa2 ] +[vue2,react ,ng2 (backbone就不支持了)] +[elasticsearch,solr]
+  以后开发会支持[ koa1 ,express , koa2 ] +[vue2,react ,ng2 (ng1 ，backbone就不支持了 ,ng1,jq对于同构支持不是很好)] +[elasticsearch,solr]
 </pre>
 <pre>
   一起开发的人员可以加我QQ 405329943
