@@ -3,7 +3,7 @@ import config from '../config.js'
 
 export const commonHttpAction = (commit ,data) => {
     let _url = `${config.service_url}${data.url}`
-    console.log(_url)
+    let model=data.model;
     if(!data.method){
         data.method = 'get'
     }
@@ -36,7 +36,10 @@ export const commonHttpAction = (commit ,data) => {
             commit('FINISH_LOADING')
         }
         if (json.code === 0) {
-            return commit(data.sucessCode, json.data)
+            return commit(data.sucessCode, {
+                data:json.data,
+                model:model
+            })
         }
         return Promise.reject(new Error('fetchFilmsLists failure'))
     })

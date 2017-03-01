@@ -108,19 +108,19 @@ const middlewareFun = async function(ctx, next, options) {
                 body.status=1;
             }
             body.create_time=new Date()
-            if(body.pwd){
-                body.pwd = MD5(body.pwd);
-            }
+            // if(body.pwd){
+            //     body.pwd = MD5(body.pwd);
+            // }
             result = await new models[options.model](body).save();
             break;
         case "put":
             //修改详情
             body.update_time = new Date();
-            if(body.pwd){
-                body.pwd = MD5(body.pwd);
-            }else{
-                delete body.pwd
-            }
+            // if(body.pwd){
+            //     body.pwd = MD5(body.pwd);
+            // }else{
+            //     delete body.pwd
+            // }
             await  models[options.model].update({_id : id}, {$set:body});
             result = 'OK';
             break;

@@ -1,6 +1,5 @@
 export const getLoading = state => state.loading
 
-
 export const getList = state => state.list
 
 export const getDetail = state => state.detail

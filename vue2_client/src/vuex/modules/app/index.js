@@ -4,6 +4,11 @@ import mutations from './mutations'
 
 const state = {
     loading: false,
+    list:{topList:[],bodyList:[]},
+    detail:{},
+    addData:{},
+    updataData:{},
+    deleteData:{}
 }
 
 export default{

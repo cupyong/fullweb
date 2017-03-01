@@ -1,24 +1,26 @@
 <template>
-    {{list.name}}
-    <el-table
-            :data="tableData"
-            stripe
-            style="width: 100%">
-        <el-table-column
-                prop="date"
-                label="日期"
-                width="180">
-        </el-table-column>
-        <el-table-column
-                prop="name"
-                label="姓名"
-                width="180">
-        </el-table-column>
-        <el-table-column
-                prop="address"
-                label="地址">
-        </el-table-column>
-    </el-table>
+    <div>
+        <div class="el-table el-table--fit el-table--striped el-table--enable-row-hover el-table--enable-row-transition"
+             style="width: 100%;">
+            <div class="el-table__body-wrapper">
+                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 1035px;">
+                   <thead>
+                    <tr>
+                        <th colspan="1" v-for="item in tableData.topList" class="el-table_1_column_1 is-leaf">
+                            <div class="cell">{{item}}</div>
+                        </th>
+                     </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="tr in tableData.bodyList" >
+                        <td  v-for="td in tr" class="el-table_1_column_1">
+                            <div class="cell">{{td}}</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table></div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -29,38 +31,16 @@
         },
         data() {
             return {
-                tableData: [{
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1517 弄'
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1519 弄'
-                }, {
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1516 弄'
-                }]
+                test: 111
             }
         },
-
         mounted () {
-            this.$store.dispatch('fetchList',{path:this.model})
+            this.$store.dispatch('fetchList', {path: this.model,model:this.model})
         },
         computed: {
-            ...mapGetters({
-                list: 'getList'
-            }),
-        }
-
-
-//        mounted () {
-//            console.log(this.model)
-//        },
+          ...mapGetters({
+              tableData: 'getList'
+        }),
+    }
     }
 </script>

@@ -8,6 +8,7 @@ let model_Paths=[];
 let menuJosn=[];
 for (let i = 0; i < dir.length; i++) {
     if (path.extname(dir[i]) !== '.js') continue;
+    if(path.basename(dir[i], '.js')=="index") continue;
     let name = (toCamel(path.basename(dir[i], '.js')).replace('Model', '')).toLowerCase()
     //views
      let views_content=`<template>
